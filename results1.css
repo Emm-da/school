@@ -1,48 +1,297 @@
-.stats {
-  display: flex;
-  justify-content: center;
+/* Основные переменные цветов */
+:root {
+  --primary: #4361ee;       /* Основной синий */
+  --primary-dark: #3a0ca3;  /* Тёмно-синий */
+  --accent: #f72585;        /* Акцентный розовый */
+  --light: #f8f9fa;         /* Светлый фон */
+  --dark: #212529;          /* Тёмный текст */
+  --gray: #6c757d;          /* Серый текст */
+  --light-gray: #e9ecef;    /* Светлые границы */
+}
+
+/* Базовые стили */
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: #f5f7ff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Заголовок страницы */
+.results-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.results-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.results-header p {
+  font-size: 1.2rem;
+  color: var(--gray);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Карточки статистики */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin: 3rem 0;
-  flex-wrap: wrap;
+  margin: 4rem 0;
 }
 
 .stat-card {
-  background: var(--primary);
-  color: white;
-  padding: 2rem;
-  border-radius: 8px;
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
   text-align: center;
-  min-width: 200px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-top: 4px solid var(--accent);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
 .stat-value {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin-bottom: 0.8rem;
+  line-height: 1;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 1.15rem;
+  color: var(--dark);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Таблица результатов */
+.results-table-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  margin: 4rem 0;
+}
+
+.results-table-container h2 {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.results-table-container p {
+  color: var(--gray);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
 }
 
 .results-table {
-  overflow-x: auto;
-  margin: 3rem 0;
-}
-
-table {
   width: 100%;
-  border-collapse: collapse;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  font-size: 1.05rem;
 }
 
-th, td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.results-table th {
+  background: var(--primary-dark);
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: sticky;
+  top: 0;
 }
 
-th {
-  background: var(--dark);
+.results-table td {
+  padding: 1.2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--light-gray);
+  transition: background-color 0.2s;
+}
+
+.results-table tr:nth-child(even) {
+  background-color: var(--light);
+}
+
+.results-table tr:hover {
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+/* Отзывы */
+.testimonial {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin: 3rem 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+
+.testimonial:before {
+  content: """;
+  font-family: serif;
+  font-size: 5rem;
+  color: rgba(247, 37, 133, 0.1);
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  line-height: 1;
+}
+
+.testimonial-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--dark);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  color: var(--primary-dark);
+  font-size: 1.1rem;
+}
+
+/* Призыв к действию */
+.cta-section {
+  text-align: center;
+  margin: 5rem 0 3rem;
+  padding: 3.5rem 2rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 12px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section:after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.cta-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-block;
+  background: white;
+  color: var(--primary-dark);
+  padding: 1.1rem 2.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background: var(--accent);
   color: white;
 }
 
-tr:nth-child(even) {
-  background: #f9f9f9;
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .results-header h1 {
+    font-size: 2rem;
+  }
+  
+  .results-header p {
+    font-size: 1.1rem;
+  }
+  
+  .stat-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .stat-value {
+    font-size: 2.8rem;
+  }
+  
+  .results-table-container {
+    padding: 1.5rem;
+  }
+  
+  .cta-section {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .cta-section h2 {
+    font-size: 1.8rem;
+  }
 }
+
+/* Специальные классы */
+.highlight {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
