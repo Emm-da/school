@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Контакты | Онлайн-школа ОГЭ</title>
-    <link rel="stylesheet" href="styles.css">
+  <!-- То же самое, что в index.html -->
 </head>
 <body>
-    <header>...</header>
-    <nav>...</nav>
-    <div class="container">
-        <h2>Как с нами связаться</h2>
-        <p>📧 Email: <a href="mailto:oge-school@example.com">oge-school@example.com</a></p>
-        <p>📞 Телефон: +7 (966) 342-84-82</p>
-        <p>🔹 Telegram: <a href="https://t.me/eeemm_da">@eeemm_da</a></p>
-    </div>
-    <footer>...</footer>
-</body>
-</html>
+  <header>...</header>
+  <nav>...</nav>
+
+  <main class="container">
+    <h2 class="section-title">Свяжитесь с нами</h2>
+    
+    <div class="contact-methods" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
+      <div class="card" style="text-align: center; padding: 2rem;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📧</div>
+        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Email</h3>
+        <a href="mailto:oge-school@example.com" style="color: var(--primary);">oge-school@example.com</a>
+      </div>
+      
+      <div class="card" style="text-align: center; padding: 2rem;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📞</div>
+        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Телефон</h3>
+        <a href="tel:+79991234567" style="color: var(--primary);">+7 (999) 123-45-67</a>
+      </div>
+      
+      <div class="card" style="text-align: center; padding: 2rem;">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔹</div>
+        <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Telegram</h3>
+        <a href="https://t.me/oge_school" target="_blank" style="color
